@@ -12,6 +12,14 @@ def GetManifest():
     }
     response = requests.request("GET", url, headers=headers, data=payload)
     manifest = json.loads(response.content)
+    
+def GetInventoryItemDefinition():
+    global inventoryItemDefinition
+
+    inventoryItemDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinyInventoryItemDefinition"]
+    inventoryItemDefinition = "https://bungie.net"+inventoryItemDefinition
+    print(inventoryItemDefinition)
+
 
 
     response = requests.get(enManifestPath)
