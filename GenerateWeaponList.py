@@ -30,8 +30,10 @@ def GetSandboxPerkDefinition():
 
 ##response = requests.get(inventoryItemDefinition)
 
+today = datetime.today().strftime("%Y-%m-%d")
 ##filename = "d2Manifest_"+today+".json"
 
+print (today)
 ##print (filename)
 
     open(filename, "wb").write(response.content)
