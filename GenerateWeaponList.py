@@ -28,13 +28,11 @@ def GetSandboxPerkDefinition():
     sandboxPerkDefinition = "https://bungie.net"+sandboxPerkDefinition
     print(sandboxPerkDefinition)
 
+##response = requests.get(inventoryItemDefinition)
 
-    response = requests.get(enManifestPath)
+##filename = "d2Manifest_"+today+".json"
 
-    today = datetime.today().strftime("%Y-%m-%d")
-    filename = "d2Manifest_"+today+".json"
+##print (filename)
 
-    print (today)
-    print (filename)
     open(filename, "wb").write(response.content)
 
