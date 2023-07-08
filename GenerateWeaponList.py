@@ -45,5 +45,6 @@ today = datetime.today().strftime("%Y-%m-%d")
 print (today)
 ##print (filename)
 
+def GenerateWeaponAndPerkFile():
     open(filename, "wb").write(response.content)
 
