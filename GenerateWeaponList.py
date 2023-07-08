@@ -20,6 +20,13 @@ def GetInventoryItemDefinition():
     inventoryItemDefinition = "https://bungie.net"+inventoryItemDefinition
     print(inventoryItemDefinition)
 
+    
+def GetSandboxPerkDefinition():
+    global sandboxPerkDefinition
+
+    sandboxPerkDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinySandboxPerkDefinition"]
+    sandboxPerkDefinition = "https://bungie.net"+sandboxPerkDefinition
+    print(sandboxPerkDefinition)
 
 
     response = requests.get(enManifestPath)
