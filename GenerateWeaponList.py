@@ -2,8 +2,8 @@ import requests
 import json
 from datetime import datetime
 
-def GetDestiny2EnManifestPath():
-    global enManifestPath
+def GetManifest():
+    global manifest
     
     url = "https://www.bungie.net/Platform/Destiny2/Manifest"
     payload = {}
@@ -12,9 +12,6 @@ def GetDestiny2EnManifestPath():
     }
     response = requests.request("GET", url, headers=headers, data=payload)
     manifest = json.loads(response.content)
-    enManifestPath = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinyInventoryItemDefinition"]
-    enManifestPath = "https://bungie.net"+enManifestPath
-    print(enManifestPath)
 
 def GetItemDefinitionEndpoint():
     GetDestiny2EnManifestPath()
