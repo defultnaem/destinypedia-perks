@@ -13,8 +13,6 @@ def GetManifest():
     response = requests.request("GET", url, headers=headers, data=payload)
     manifest = json.loads(response.content)
 
-def GetItemDefinitionEndpoint():
-    GetDestiny2EnManifestPath()
 
     response = requests.get(enManifestPath)
 
@@ -25,4 +23,3 @@ def GetItemDefinitionEndpoint():
     print (filename)
     open(filename, "wb").write(response.content)
 
-GetItemDefinitionEndpoint()
