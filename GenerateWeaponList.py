@@ -15,36 +15,65 @@ def GetManifest():
     
 def GetInventoryItemDefinition():
     global inventoryItemDefinition
+    payload = {}
+    headers = {}
 
     inventoryItemDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinyInventoryItemDefinition"]
-    inventoryItemDefinition = "https://bungie.net"+inventoryItemDefinition
-    print(inventoryItemDefinition)
-
-def GenerateWeaponList():
-    GetInventoryItemDefinition()
+##    print("https://bungie.net"+inventoryItemDefinition)
+    inventoryItemDefinition = requests.request("GET", "https://bungie.net"+inventoryItemDefinition, headers=headers, data=payload)
+##    inventoryItemDefinition = json.loads(inventoryItemDefinition.content) 
     
 def GetSandboxPerkDefinition():
     global sandboxPerkDefinition
 
     sandboxPerkDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinySandboxPerkDefinition"]
     sandboxPerkDefinition = "https://bungie.net"+sandboxPerkDefinition
-    print(sandboxPerkDefinition)
+##    print(sandboxPerkDefinition)
+
+def GetPlugSetDefinition():
+    global plugSetDefinition
+
+    plugSetDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinyPlugSetDefinition"]
+    plugSetDefinition = "https://bungie.net"+plugSetDefinition
+##    print(plugSetDefinition)
 
 def GeneratePerksList():
     GetSandboxPerkDefinition()
+
+def GenerateWeaponList():
+    GetInventoryItemDefinition()
+
+def GeneratePlugSetList():
+    GetPlugSetDefinition()
     
 GetManifest()
 GenerateWeaponList()
 GeneratePerksList()
+GeneratePlugSetList()
 
 ##response = requests.get(inventoryItemDefinition)
 
 today = datetime.today().strftime("%Y-%m-%d")
-##filename = "d2Manifest_"+today+".json"
+filename = "d2Manifest_"+today+".json"
 
-print (today)
+##print (today)
 ##print (filename)
 
 def GenerateWeaponAndPerkFile():
-    open(filename, "wb").write(response.content)
+    open(filename, "wb").write(inventoryItemDefinition.content)
 
+GenerateWeaponAndPerkFile()
+##print()
+##print()
+##print()
+
+##with open(inventoryItemDefinition, "r") as data_file:
+##    data = json.load(data_file)
+##weaponItemType = inventoryItemDefinition["itemType"]
+
+##for v in inventoryItemDefinition:
+##    if weaponItemType == '3':
+##        print(inventoryItemDefinition["displayProperties"]["name"])
+
+
+        
