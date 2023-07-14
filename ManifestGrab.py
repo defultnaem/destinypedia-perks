@@ -65,8 +65,8 @@ def GetPlugSetDefinition():
     open("DestinyPlugSetDefinition.json", "wb").write(plugSetDefinition.content)
     print("plug set file generated")
 
-##today = datetime.today().strftime("%Y-%m-%d")
-today = "2023-06-27"
+today = datetime.today().strftime("%Y-%m-%d")
+##today = "2023-06-27"
 
 GetManifest()
 GetInventoryItemDefinition()
