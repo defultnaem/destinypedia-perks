@@ -4,7 +4,7 @@ import os
 import time
 from zipfile import ZipFile
 from datetime import datetime
-import GenerateWeaponList as gwl
+import GenerateNewFiles as gnf
 
 def GetManifest():
     global manifest
@@ -44,16 +44,6 @@ def GetInventoryItemDefinition():
     inventoryItemDefinition = requests.request("GET", "https://bungie.net"+inventoryItemDefinition, headers=headers, data=payload)
     open("DestinyInventoryItemDefinition.json", "wb").write(inventoryItemDefinition.content)
     print("item file generated")
-    
-def GetSandboxPerkDefinition():
-    global sandboxPerkDefinition
-    payload = {}
-    headers = {}
-
-    sandboxPerkDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinySandboxPerkDefinition"]
-    sandboxPerkDefinition = requests.request("GET", "https://bungie.net"+sandboxPerkDefinition, headers=headers, data=payload)
-    open("DestinySandboxPerkDefinition.json", "wb").write(sandboxPerkDefinition.content)
-    print("perk file generated")
 
 def GetPlugSetDefinition():
     global plugSetDefinition
@@ -65,11 +55,29 @@ def GetPlugSetDefinition():
     open("DestinyPlugSetDefinition.json", "wb").write(plugSetDefinition.content)
     print("plug set file generated")
 
+def GetSocketTypeDefinition():
+    global socketTypeDefinition
+    payload = {}
+    headers = {}
+
+    socketTypeDefinition = manifest["Response"]["jsonWorldComponentContentPaths"]["en"]["DestinySocketTypeDefinition"]
+    socketTypeDefinition = requests.request("GET", "https://bungie.net"+socketTypeDefinition, headers=headers, data=payload)
+    open("DestinySocketTypeDefinition.json", "wb").write(socketTypeDefinition.content)
+    print("socket type file generated")
+
+def RemoveOldFiles():
+    os.remove("DestinyWeaponDefinition.json")
+    os.remove("DestinyPerkDefinition.json")
+    os.remove("DestinyPlugSetDefinition.json")
+    time.sleep(3)
+    
 today = datetime.today().strftime("%Y-%m-%d")
 ##today = "2023-06-27"
 
+RemoveOldFiles()
 GetManifest()
 GetInventoryItemDefinition()
-GetSandboxPerkDefinition()
 GetPlugSetDefinition()
-gwl.GenerateWeaponList()
+gnf.GenerateWeaponList()
+gnf.GeneratePerkList()
+gnf.DeleteItemFile()
