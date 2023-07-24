@@ -10,6 +10,9 @@
 # manifest_archive
 /manifest_archive/
 
+# testing_folder
+/testing_folder/*.json
+
 # User-specific files
 *.rsuser
 *.suo
