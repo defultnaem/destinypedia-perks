@@ -1,0 +1,71 @@
+[{
+        "WeaponHash" {
+            "name": "WeaponName",
+            "icon": "IconPath",
+            "itemType": "WeaponType",
+            "itemRarity": "WeaponRarity",
+            "sockets": [{
+                    "intrinsic": {
+                        "name": "IntrinsicName",
+                        "hash": IntrinsicHash
+                    }
+                }, {
+                    "barrel": [{
+                            "name": "BarrelName",
+                            "hash": BarrelHash
+                        }, {
+                            "name": "BarrelName",
+                            "hash": BarrelHash
+                        }, {
+                            ...
+                        }
+                    ]
+                }, {
+                    "magazine": [{
+                            "name": "MagazineName",
+                            "hash": MagazineHash
+                        }, {
+                            "name": "MagazineName",
+                            "hash": MagazineHash
+                        }, {
+                            ...
+                        }
+                    ]
+                }, {
+                    "1stcolumn": [{
+                            "name": "PerkName",
+                            "hash": PerkHash
+                        }, {
+                            "name": "PerkName",
+                            "hash": PerkHash
+                        }, {
+                            ...
+                        }
+                    ]
+                }, {
+                    "2ndcolumn": [{
+                            "name": "PerkName",
+                            "hash": PerkHash
+                        }, {
+                            "name": "PerkName",
+                            "hash": PerkHash
+                        }, {
+                            ...
+                        }
+                    ]
+                }, {
+                    "origin": [{
+                            "name": "PerkName",
+                            "hash": PerkHash
+                        }, {
+                            "name": "PerkName",
+                            "hash": PerkHash
+                        }, {
+                            ...
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

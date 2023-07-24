@@ -75,11 +75,11 @@ def RemoveOldFiles():
 today = datetime.today().strftime("%Y-%m-%d")
 ##today = "2023-06-27"
 
-RemoveOldFiles()
+##RemoveOldFiles()
 GetManifest()
-GetInventoryItemDefinition()
-GetSocketTypeDefinition()
-GetPlugSetDefinition()
-gnf.GenerateWeaponList()
-gnf.GeneratePerkList()
-gnf.DeleteItemFile()
+##GetInventoryItemDefinition()
+##GetSocketTypeDefinition()
+##GetPlugSetDefinition()
+##gnf.GenerateWeaponList()
+##gnf.GeneratePerkList()
+##gnf.DeleteItemFile()
