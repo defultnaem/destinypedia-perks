@@ -10,6 +10,9 @@
 # manifest_archive
 /manifest_archive/
 
+# config file
+config.py
+
 # testing_folder
 /testing_folder/*.json
 

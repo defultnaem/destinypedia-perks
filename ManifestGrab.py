@@ -5,6 +5,7 @@ import time
 from zipfile import ZipFile
 from datetime import datetime
 import GenerateNewFiles as gnf
+import config
 
 def GetManifest():
     global manifest
@@ -12,7 +13,7 @@ def GetManifest():
     url = "https://www.bungie.net/Platform/Destiny2/Manifest"
     payload = {}
     headers = {
-      'x-api-key': 'b51473b6521d458b8733d0844cd66f1f',
+      'x-api-key': config.api_key,
     }
     response = requests.request("GET", url, headers=headers, data=payload)
     manifest = json.loads(response.content)
