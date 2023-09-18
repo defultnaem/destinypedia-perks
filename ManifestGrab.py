@@ -30,7 +30,7 @@ def GetManifest():
     ZipFile(manifestFileName, "r").extract(destinyManifest, path=None)
     time.sleep(3)
     print("files extracted from .zip")
-    os.rename(destinyManifest, "manifest_archive/DestinyManifest_"+today+".sqlite3")
+    os.rename(destinyManifest, "manifest_archive/("+today+")_"+manifest["Response"]["version"]+".sqlite3")
     print(".content file renamed")
     print(".content file moved")
     os.remove(manifestFileName)
@@ -74,7 +74,7 @@ def RemoveOldFiles():
     time.sleep(3)
     
 today = datetime.today().strftime("%Y-%m-%d")
-##today = "2023-06-27"
+##today = "2023-08-01"
 
 ##RemoveOldFiles()
 GetManifest()
